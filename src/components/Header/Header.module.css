@@ -1,0 +1,8 @@
+.navLink {
+    padding: 10px;
+    background-color: aqua;
+}
+
+.active {
+    background-color: chartreuse
+}
