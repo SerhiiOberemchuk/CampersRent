@@ -1,0 +1,43 @@
+.sideBar {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.labelLocation {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: rgba(16, 24, 40, 0.6);
+}
+
+.inputLocation {
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    background-color: var(--inputs);
+}
+
+.filetCampers {
+    display: flex;
+    flex-direction: column;
+}
+
+.filterName {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text);
+    margin-bottom: 14px;
+}

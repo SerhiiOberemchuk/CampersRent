@@ -1,5 +1,18 @@
+.header {
+    margin-bottom: 10px;
+    background-color: antiquewhite;
+    width: 100%;
+}
+
+.navigation {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
 .navLink {
-    padding: 10px;
+    border-radius: 5px;
+    padding: 5px;
     background-color: aqua;
 }
 

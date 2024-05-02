@@ -1,0 +1,38 @@
+.equipmentSection {
+    margin-bottom: 32px;
+}
+
+.boxName {
+    position: relative;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--main);
+    margin-bottom: 48px;
+}
+
+.boxName::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    height: 1px;
+    background-color: rgba(16, 40, 20, 0.1);
+    width: 100%;
+
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 10px;
+}
+
+.filterItem {
+    border: 1px solid var(--button);
+    border-radius: 10px;
+    padding: 17px 40px;
+    width: 112px;
+    height: 95px;
+    margin: 0;
+}

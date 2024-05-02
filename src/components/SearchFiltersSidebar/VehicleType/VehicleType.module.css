@@ -1,0 +1,30 @@
+.sectionType {
+    margin-bottom: 64px;
+}
+
+.typeHeader {
+    position: relative;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--main);
+    margin-bottom: 48px;
+}
+
+.typeHeader::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    height: 1px;
+    background-color: rgba(16, 40, 20, 0.1);
+    width: 100%;
+
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 10px;
+}

@@ -1,5 +1,7 @@
+import Container from "../../components/Container/Container";
+
 const Favorites = () => {
-  return <div>Favorites</div>;
+  return <Container>Favorites</Container>;
 };
 
 export default Favorites;
