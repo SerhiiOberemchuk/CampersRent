@@ -5,26 +5,34 @@ import {
   getCamperByIdThunk,
 } from "../../redux/campers/operations";
 import CamperCard from "./CamperCard";
-import { useEffect, useState } from "react";
-import { nanoid } from "nanoid";
+import { useEffect } from "react";
 import { nextPage } from "../../redux/campers/campersSlice";
+import Spiner from "../Common/Spiner";
+import ModalMoreInfo from "../ModallMoreInfo/ModalMoreInfo";
 
 const CamperCatalog = () => {
-  const { campers, isLoading, error, pageOfCampers } = useSelector(
-    (state) => state.campers
-  );
+  const {
+    campers,
+    isLoading,
+    error,
+    isModallMoreInfo,
+    pageOfCampers,
+    limitItemsOfCampers,
+    isButtonLoadMore,
+  } = useSelector((state) => state.campers);
   const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("useEffect triggered", pageOfCampers);
-    dispatch(getAllCampersThunk({ page: pageOfCampers, limit: 4 }));
-  }, [pageOfCampers, dispatch]);
+    dispatch(
+      getAllCampersThunk({ page: pageOfCampers, limit: limitItemsOfCampers })
+    );
+  }, [pageOfCampers, limitItemsOfCampers, dispatch]);
 
   const handleLoadMore = () => {
     dispatch(nextPage());
   };
 
-  // console.log(pageOfCampers);
   // const handleShowMoreInfo = (id) => dispatch(getCamperByIdThunk(id));
 
   return (
@@ -32,8 +40,8 @@ const CamperCatalog = () => {
       {campers &&
         campers.map((item) => (
           <CamperCard
-            // key={nanoid()}
-            key={item.id}
+            key={item._id}
+            id={item._id}
             name={item.name}
             price={item.price}
             rating={item.rating}
@@ -47,13 +55,16 @@ const CamperCatalog = () => {
             beds={item.details.beds}
           />
         ))}
-      <button
-        type="button"
-        className={css.buttonLoadMore}
-        onClick={handleLoadMore}
-      >
-        {isLoading ? "Loading..." : "Load more"}
-      </button>
+      {isButtonLoadMore && (
+        <button
+          type="button"
+          className={css.buttonLoadMore}
+          onClick={handleLoadMore}
+        >
+          {isLoading ? <Spiner /> : "Load more"}
+        </button>
+      )}
+      {isModallMoreInfo && <ModalMoreInfo />}
     </div>
   );
 };

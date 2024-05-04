@@ -19,12 +19,24 @@ const campersSlice = createSlice({
     nextPage: (state) => {
       state.pageOfCampers += 1;
     },
+    showModal: (state, { payload }) => {
+      state.isModallMoreInfo = true;
+      state.idCamperShowMore = payload;
+      state.camperMoreInfo = state.campers.find((item) => item._id === payload);
+    },
+    closeModal: (state) => {
+      state.isModallMoreInfo = false;
+      state.idCamperShowMore = null;
+      state.camperMoreInfo = null;
+    },
   },
   extraReducers: (builder) =>
     builder
       .addCase(getAllCampersThunk.pending, handlePending)
       .addCase(getAllCampersThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        state.isButtonLoadMore =
+          payload.length < state.limitItemsOfCampers ? false : true;
         state.campers = [...state.campers, ...payload];
       })
       .addCase(getAllCampersThunk.rejected, handleRejected)
@@ -36,6 +48,6 @@ const campersSlice = createSlice({
       .addCase(getCamperByIdThunk.rejected, handleRejected),
 });
 
-export const { nextPage } = campersSlice.actions;
+export const { nextPage, showModal, closeModal } = campersSlice.actions;
 
 export const campersReduser = campersSlice.reducer;

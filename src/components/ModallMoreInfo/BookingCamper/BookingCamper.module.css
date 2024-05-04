@@ -1,0 +1,30 @@
+.bookingCamperHeader {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+}
+
+.bookingCamperDescription {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text);
+}
+
+.buttonSubscribe {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #fff;
+    border-radius: 200px;
+    padding: 16px 60px;
+    width: 160px;
+    height: 56px;
+    background: var(--button);
+}
+
+.buttonSubscribe:hover {
+    background-color: #d84343;
+}

@@ -1,0 +1,131 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.modalMore {
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 982px;
+    background: #fff;
+    z-index: 999;
+    color: var(--main);
+    height: 100%;
+}
+
+
+
+.campersBox {
+    width: 100%;
+    max-width: 888px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 100px;
+}
+
+.camperCard {
+    display: flex;
+    gap: 24px;
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 20px;
+    padding: 24px;
+    max-width: 888px;
+    max-height: 358px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--main);
+}
+
+
+
+.locationPoint {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.buttonCloseModal {
+    background-color: transparent;
+}
+
+.image {
+    width: 100%;
+    max-width: 290px;
+    height: 310px;
+    border-radius: 10px;
+}
+
+.imageList {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.modelCamper {
+    font-size: 24px;
+}
+
+.namePriceBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    /* color: transparent; */
+}
+
+.headerLine {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 158px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+}
+
+.reviewsLocation {
+    display: flex;
+    gap: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 16px;
+}
+
+.reviews {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    align-items: center;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
+
+.scrollBox {
+    max-height: 530px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

@@ -9,6 +9,8 @@ import BedsSvg from "../../assets/Icons/BedsSvg";
 import AcAirSvg from "../../assets/Icons/AcAirSvg";
 import PointLocationSvg from "../../assets/Icons/PointLocationSvg";
 import StarSvg from "../../assets/Icons/StarSvg";
+import { useDispatch } from "react-redux";
+import { showModal } from "../../redux/campers/campersSlice";
 
 const CamperCard = ({
   name,
@@ -22,7 +24,13 @@ const CamperCard = ({
   engine,
   transmission,
   beds,
+  id,
 }) => {
+  const dispatch = useDispatch();
+  const handleOpenModal = () => {
+    dispatch(showModal(id));
+    document.body.classList.add("body-no-scroll");
+  };
   return (
     <div className={css.camperCard}>
       {/* <div
@@ -74,7 +82,7 @@ const CamperCard = ({
         <button
           type="button"
           className={css.buttonShowMore}
-          //   onClick={}
+          onClick={handleOpenModal}
         >
           Show more
         </button>
