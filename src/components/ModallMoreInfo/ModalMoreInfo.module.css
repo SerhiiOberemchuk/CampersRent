@@ -22,7 +22,7 @@
     background: #fff;
     z-index: 999;
     color: var(--main);
-    height: 100%;
+    /* height: 100%; */
 }
 
 
