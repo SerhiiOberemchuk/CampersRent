@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    padding-bottom: 100px;
 }
 
 .camperCard {
@@ -14,18 +15,45 @@
     padding: 24px;
     max-width: 888px;
     max-height: 358px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--main);
 }
 
 .camperInformationSection {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: space-between;
     width: 100%;
+    max-width: 526px;
 }
 
-.headerCardInfo {}
+.locationPoint {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
 
-.modelCamper {}
+.details {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 100%;
+    max-width: 290px;
+    height: 310px;
+    border-radius: 10px;
+}
+
+.modelCamper {
+    font-size: 24px;
+}
 
 .namePriceBlock {
     width: 100%;
@@ -45,6 +73,29 @@
 .reviewsLocation {
     display: flex;
     gap: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+}
+
+.reviews {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    align-items: center;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
+
+.description {
+    max-width: 526px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .buttonShowMore {
@@ -63,4 +114,13 @@
 
 .buttonShowMore:hover {
     background-color: #d84343;
+}
+
+.buttonLoadMore {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    border: 1px solid rgba(71, 84, 103, 0.2);
+    border-radius: 200px;
+    padding: 16px 32px;
 }

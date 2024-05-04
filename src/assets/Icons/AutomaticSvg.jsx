@@ -1,3 +1,4 @@
+import React from "react";
 const Automatic = ({ size = 32 }) => {
   return (
     <svg

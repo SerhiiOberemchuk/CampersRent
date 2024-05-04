@@ -1,1 +1,1 @@
-// export * as Icon from "../assets/Icons";
+// export * as IconSvg from "../assets/Icons";

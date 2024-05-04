@@ -1,32 +1,59 @@
+import { useDispatch, useSelector } from "react-redux";
 import css from "./CamperCatalog.module.css";
-import camperImage from "/camper1.jpg";
+import {
+  getAllCampersThunk,
+  getCamperByIdThunk,
+} from "../../redux/campers/operations";
+import CamperCard from "./CamperCard";
+import { useEffect, useState } from "react";
+import { nanoid } from "nanoid";
+import { nextPage } from "../../redux/campers/campersSlice";
+
 const CamperCatalog = () => {
+  const { campers, isLoading, error, pageOfCampers } = useSelector(
+    (state) => state.campers
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("useEffect triggered", pageOfCampers);
+    dispatch(getAllCampersThunk({ page: pageOfCampers, limit: 4 }));
+  }, [pageOfCampers, dispatch]);
+
+  const handleLoadMore = () => {
+    dispatch(nextPage());
+  };
+
+  // console.log(pageOfCampers);
+  // const handleShowMoreInfo = (id) => dispatch(getCamperByIdThunk(id));
+
   return (
     <div className={css.campersBox}>
-      <div className={css.camperCard}>
-        <img src={camperImage} alt="camper" />
-        <div className={css.camperInformationSection}>
-          <div className={css.headerCardInfo}>
-            <div className={css.namePriceBlock}>
-              <h2 className={css.modelCamper}>name</h2>
-              <div className={css.price}>
-                <p>price</p>
-                <label htmlFor="model_id"></label>
-                <input type="checkbox" name="model" id="model_id" />
-              </div>
-            </div>
-            <div className={css.reviewsLocation}>
-              <p>reviews</p>
-              <p>location</p>
-            </div>
-          </div>
-          <p>text info</p>
-          <p>technical info</p>
-          <button type="button" className={css.buttonShowMore}>
-            Show more
-          </button>
-        </div>
-      </div>
+      {campers &&
+        campers.map((item) => (
+          <CamperCard
+            // key={nanoid()}
+            key={item.id}
+            name={item.name}
+            price={item.price}
+            rating={item.rating}
+            reviews={item.reviews.length}
+            location={item.location}
+            description={item.description}
+            image={item.gallery[0]}
+            adults={item.adults}
+            engine={item.engine}
+            transmission={item.transmission}
+            beds={item.details.beds}
+          />
+        ))}
+      <button
+        type="button"
+        className={css.buttonLoadMore}
+        onClick={handleLoadMore}
+      >
+        {isLoading ? "Loading..." : "Load more"}
+      </button>
     </div>
   );
 };
