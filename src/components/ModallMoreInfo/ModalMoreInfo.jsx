@@ -71,33 +71,6 @@ const ModalMoreInfo = () => {
           </ul>
           <DetailsInformation />
         </div>
-        {/* 
-          
-         
-          <ul className={css.details}>
-            <li>
-              <DetailsItem image={<AdultsSvg />} name={`${adults} adults`} />
-            </li>
-            <li>
-              <DetailsItem
-                image={<Automatic size={20} />}
-                name={transmission}
-              />
-            </li>
-            <li>
-              <DetailsItem image={<PetrolSvg />} name={engine} />
-            </li>
-            <li>
-              <DetailsItem image={<KitchenSvg size={20} />} name={"Kitchen"} />
-            </li>
-            <li>
-              <DetailsItem image={<BedsSvg />} name={`${beds} beds`} />
-            </li>
-            <li>
-              <DetailsItem image={<AcAirSvg size={20} />} name={"AC"} />
-            </li>
-          </ul>
-        </div> */}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { nextPage } from "../../redux/campers/campersSlice";
 import Spiner from "../Common/Spiner";
 import ModalMoreInfo from "../ModallMoreInfo/ModalMoreInfo";
+import { nanoid } from "@reduxjs/toolkit";
 
 const CamperCatalog = () => {
   const {
@@ -35,7 +36,7 @@ const CamperCatalog = () => {
       {campers &&
         campers.map((item) => (
           <CamperCard
-            key={item._id}
+            key={nanoid()}
             id={item._id}
             name={item.name}
             price={item.price}

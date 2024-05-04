@@ -17,6 +17,7 @@
 .modalMore {
     border-radius: 20px;
     padding: 40px;
+    width: 100%;
     max-width: 982px;
     background: #fff;
     z-index: 999;
