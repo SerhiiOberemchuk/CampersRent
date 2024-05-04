@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import css from "./DetailsInformation.module.css";
 import BookingCamper from "../BookingCamper/BookingCamper";
+import Feauters from "../Feauters/Feauters";
 
 const DetailsInformation = () => {
   const { camperMoreInfo } = useSelector((state) => state.campers);
@@ -19,7 +20,7 @@ const DetailsInformation = () => {
       </div>
 
       <div className={css.bottomBoxDescription}>
-        <div></div>
+        <div className={css.featuresOrReviews}>{/* <Feauters /> */}</div>
         <div className={css.bookingForm}>
           <BookingCamper />
         </div>

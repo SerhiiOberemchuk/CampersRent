@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./CamperCatalog.module.css";
-import {
-  getAllCampersThunk,
-  getCamperByIdThunk,
-} from "../../redux/campers/operations";
+import { getAllCampersThunk } from "../../redux/campers/operations";
 import CamperCard from "./CamperCard";
 import { useEffect } from "react";
 import { nextPage } from "../../redux/campers/campersSlice";
@@ -32,8 +29,6 @@ const CamperCatalog = () => {
   const handleLoadMore = () => {
     dispatch(nextPage());
   };
-
-  // const handleShowMoreInfo = (id) => dispatch(getCamperByIdThunk(id));
 
   return (
     <div className={css.campersBox}>

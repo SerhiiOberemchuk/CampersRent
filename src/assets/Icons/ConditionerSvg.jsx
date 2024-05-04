@@ -1,4 +1,4 @@
-const Conditioner = ({ size = 32 }) => {
+const ConditionerSvg = ({ size = 32 }) => {
   return (
     <svg
       width={size}
@@ -32,4 +32,4 @@ const Conditioner = ({ size = 32 }) => {
   );
 };
 
-export default Conditioner;
+export default ConditionerSvg;

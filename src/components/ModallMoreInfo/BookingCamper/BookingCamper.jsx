@@ -1,13 +1,37 @@
+import { useState } from "react";
 import css from "./BookingCamper.module.css";
 
 const BookingCamper = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [data, setData] = useState("");
+  const [comment, setComment] = useState("");
+  const handleChangeName = ({ target: { value } }) => {
+    setName(value);
+  };
+  const handleChangeEmail = ({ target: { value } }) => {
+    setEmail(value);
+  };
+  const handleChangeData = ({ target: { value } }) => {
+    setData(value);
+  };
+  const handleChangeComment = ({ target: { value } }) => {
+    setComment(value);
+  };
+  const handleSubmit = (e) => {
+    e.target.reset();
+  };
   return (
     <div>
       <h2 className={css.bookingCamperHeader}>Book your campervan now</h2>
       <p className={css.bookingCamperDescription}>
         Stay connected! We are always ready to help you.
       </p>
-      <form action="subscribe">
+      <form
+        action="subscribe"
+        className={css.formBooking}
+        onSubmit={handleSubmit}
+      >
         <div className={css.formGroup}>
           <label htmlFor="name" className={css.label}></label>
           <input
@@ -17,6 +41,8 @@ const BookingCamper = () => {
             placeholder="Name"
             className={css.input}
             required
+            onChange={handleChangeName}
+            value={name}
           />
         </div>
 
@@ -29,6 +55,8 @@ const BookingCamper = () => {
             placeholder="Email"
             className={css.input}
             required
+            onChange={handleChangeEmail}
+            value={email}
           />
         </div>
 
@@ -40,17 +68,22 @@ const BookingCamper = () => {
             id="data"
             className={css.input}
             required
+            placeholder="Booking date"
+            value={data}
+            onChange={handleChangeData}
           />
         </div>
 
         <div className={css.formGroup}>
           <label htmlFor="comment" className={css.label}></label>
-          <input
+          <textarea
             type="text"
             name="comment"
             id="comment"
             placeholder="Comment"
-            className={css.input}
+            className={css.inputComment}
+            value={comment}
+            onChange={handleChangeComment}
           />
         </div>
 

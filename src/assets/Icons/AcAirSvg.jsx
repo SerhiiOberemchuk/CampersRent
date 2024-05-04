@@ -1,4 +1,4 @@
-const AcAir = ({ size = 32 }) => {
+const AcAirSvg = ({ size = 32 }) => {
   return (
     <svg
       width={size}
@@ -23,4 +23,4 @@ const AcAir = ({ size = 32 }) => {
   );
 };
 
-export default AcAir;
+export default AcAirSvg;
