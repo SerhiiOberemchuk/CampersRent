@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { nextPage } from "../../redux/campers/campersSlice";
 import Spiner from "../Common/Spiner";
 import ModalMoreInfo from "../ModallMoreInfo/ModalMoreInfo";
-import { nanoid } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 
 const CamperCatalog = () => {
   const {

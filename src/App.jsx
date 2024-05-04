@@ -6,7 +6,7 @@ import Favorites from "../src/pages/Favorites/Favorites.jsx";
 
 function App() {
   return (
-    <>
+    <dev>
       <Header />
       <main>
         <Routes>
@@ -16,7 +16,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
-    </>
+    </dev>
   );
 }
 

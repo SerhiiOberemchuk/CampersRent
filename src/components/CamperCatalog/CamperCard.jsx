@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./CamperCatalog.module.css";
 import DetailsItem from "./DetailsItem/DetailsItem";
 import AdultsSvg from "../../assets/Icons/AdultsSvg";
@@ -9,8 +9,13 @@ import BedsSvg from "../../assets/Icons/BedsSvg";
 import AcAirSvg from "../../assets/Icons/AcAirSvg";
 import PointLocationSvg from "../../assets/Icons/PointLocationSvg";
 import StarSvg from "../../assets/Icons/StarSvg";
-import { useDispatch } from "react-redux";
-import { showModal } from "../../redux/campers/campersSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToFavorite,
+  dellFromFavorite,
+  showModal,
+} from "../../redux/campers/campersSlice";
+import HeartSvg from "../../assets/Icons/HeartSvg";
 
 const CamperCard = ({
   name,
@@ -26,17 +31,23 @@ const CamperCard = ({
   beds,
   id,
 }) => {
+  const { arrayFavoriteCampers } = useSelector((state) => state.campers);
   const dispatch = useDispatch();
   const handleOpenModal = () => {
     dispatch(showModal(id));
     document.body.classList.add("body-no-scroll");
   };
+
+  const isFavorite = arrayFavoriteCampers.some((item) => item._id === id);
+
+  const handleOnClickFavorite = () => {
+    if (isFavorite) {
+      dispatch(dellFromFavorite(id));
+    } else dispatch(addToFavorite(id));
+  };
+
   return (
     <div className={css.camperCard}>
-      {/* <div
-        className={css.image}
-        style={{ backgroundImage: `url(${image})` }}
-      ></div> */}
       <img src={image} alt="camper" className={css.image} />
       <div className={css.camperInformationSection}>
         <div className={css.headerCardInfo}>
@@ -44,8 +55,16 @@ const CamperCard = ({
             <h2 className={css.modelCamper}>{name}</h2>
             <div className={css.price}>
               <p>€{price.toFixed(2)}</p>
-              <label htmlFor="model_id"></label>
-              <input type="checkbox" name="model" id="model_id" />
+              <button
+                type="button"
+                onClick={handleOnClickFavorite}
+                className={css.buttonAddToFavorite}
+              >
+                <HeartSvg
+                  fill={isFavorite ? "#E44848" : ""}
+                  stroke={isFavorite ? "#E44848" : "#101828"}
+                />
+              </button>
             </div>
           </div>
           <div className={css.reviewsLocation}>
@@ -83,6 +102,7 @@ const CamperCard = ({
           type="button"
           className={css.buttonShowMore}
           onClick={handleOpenModal}
+          aria-label={`Show more about ${name}`}
         >
           Show more
         </button>

@@ -125,3 +125,7 @@
     border-radius: 200px;
     padding: 16px 32px;
 }
+
+.buttonAddToFavorite {
+    background-color: transparent;
+}

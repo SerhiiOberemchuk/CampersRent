@@ -2,7 +2,7 @@ export const initialState = {
   isLoading: false,
   error: null,
   campers: [],
-  favoriteCampers: null,
+  arrayFavoriteCampers: [],
   camperMoreInfo: null,
   pageOfCampers: 1,
   limitItemsOfCampers: 4,

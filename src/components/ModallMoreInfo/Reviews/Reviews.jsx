@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import css from "./Reviews.module.css";
-import { nanoid } from "@reduxjs/toolkit";
 import StarSvg from "../../../assets/Icons/StarSvg";
+import { nanoid } from "nanoid";
 
 const Reviews = () => {
   const { camperMoreInfo } = useSelector((state) => state.campers);

@@ -29,6 +29,17 @@ const campersSlice = createSlice({
       state.idCamperShowMore = null;
       state.camperMoreInfo = null;
     },
+    addToFavorite: (state, { payload }) => {
+      state.arrayFavoriteCampers.push(
+        state.campers.find((camper) => camper._id === payload)
+      );
+    },
+    dellFromFavorite: (state, { payload }) => {
+      state.arrayFavoriteCampers.splice(
+        state.arrayFavoriteCampers.findIndex((item) => item._id === payload),
+        1
+      );
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -48,6 +59,12 @@ const campersSlice = createSlice({
       .addCase(getCamperByIdThunk.rejected, handleRejected),
 });
 
-export const { nextPage, showModal, closeModal } = campersSlice.actions;
+export const {
+  nextPage,
+  showModal,
+  closeModal,
+  dellFromFavorite,
+  addToFavorite,
+} = campersSlice.actions;
 
 export const campersReduser = campersSlice.reducer;
