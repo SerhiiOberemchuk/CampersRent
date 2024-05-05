@@ -12,7 +12,6 @@ const CamperCatalog = () => {
   const {
     campers,
     isLoading,
-    error,
     isModallMoreInfo,
     pageOfCampers,
     limitItemsOfCampers,
@@ -40,11 +39,19 @@ const CamperCatalog = () => {
       );
     }
 
-    if (filters.equipment && filters.equipment.length > 0) {
-      filteredCampers = filteredCampers.filter((camper) =>
-        filters.equipment.every((equipment) => camper.details[equipment])
+    if (filters.transmission) {
+      filteredCampers = filteredCampers.filter(
+        (camper) => camper.transmission === filters.transmission
       );
     }
+
+    Object.keys(filters).forEach((key) => {
+      if (key !== "location" && key !== "form" && key !== "transmission") {
+        filteredCampers = filteredCampers.filter(
+          (camper) => camper.details[key] === true
+        );
+      }
+    });
 
     if (filters.location) {
       filteredCampers = filteredCampers.filter((camper) =>

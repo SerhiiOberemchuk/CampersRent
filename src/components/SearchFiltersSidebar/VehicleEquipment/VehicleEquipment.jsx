@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import css from "./VehicleEquipment.module.css";
 import AcAirSvg from "../../../assets/Icons/AcAirSvg";
 import AutomaticSvg from "../../../assets/Icons/AutomaticSvg";
@@ -14,14 +15,28 @@ const equipmentOptions = [
   { value: "bathroom", label: "Shower/WC", icon: <ShowerWcSvg /> },
 ];
 
-const VehicleEquipment = ({ onChange, selectedEquipment }) => {
+const VehicleEquipment = ({ onChange, initialFilters }) => {
+  const [filters, setFilters] = useState(initialFilters || {});
+
+  useEffect(() => {
+    onChange(filters);
+  }, [filters, onChange]);
+
   const handleCheckboxChange = (e) => {
     const value = e.target.value;
-    onChange(
-      selectedEquipment.includes(value)
-        ? selectedEquipment.filter((item) => item !== value)
-        : [...selectedEquipment, value]
-    );
+    const isChecked = e.target.checked;
+
+    if (value === "automatic") {
+      setFilters((prev) => ({
+        ...prev,
+        transmission: isChecked ? value : undefined,
+      }));
+    } else {
+      setFilters((prev) => ({
+        ...prev,
+        [value]: isChecked ? isChecked : undefined,
+      }));
+    }
   };
 
   return (
@@ -37,12 +52,22 @@ const VehicleEquipment = ({ onChange, selectedEquipment }) => {
               value={option.value}
               className={css.visuallyHidden}
               onChange={handleCheckboxChange}
-              checked={selectedEquipment.includes(option.value)}
+              checked={
+                option.value === "automatic"
+                  ? filters.transmission === "automatic"
+                  : !!filters[option.value]
+              }
             />
             <label
               htmlFor={option.value}
               className={`${css.filterCheckbox} ${
-                selectedEquipment.includes(option.value) ? css.checked : ""
+                (
+                  option.value === "automatic"
+                    ? filters.transmission === "automatic"
+                    : !!filters[option.value]
+                )
+                  ? css.checked
+                  : ""
               }`}
             >
               {option.icon}

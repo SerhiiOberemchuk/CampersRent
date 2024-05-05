@@ -20,8 +20,8 @@ const SearchFiltersSidebar = () => {
     setCurrentFilters({ ...currentFilters, form: vanType });
   };
 
-  const handleEquipmentChange = (equipment) => {
-    setCurrentFilters({ ...currentFilters, equipment });
+  const handleEquipmentChange = (equipmentFilters) => {
+    setCurrentFilters({ ...currentFilters, ...equipmentFilters });
   };
 
   const handleApplyFilters = () => {
@@ -46,7 +46,7 @@ const SearchFiltersSidebar = () => {
         <h2 className={css.filterName}>Filters</h2>
         <VehicleEquipment
           onChange={handleEquipmentChange}
-          selectedEquipment={currentFilters.equipment || []}
+          initialFilters={currentFilters}
         />
         <VehicleType onChange={handleVanTypeChange} />
         <ButtonSearch onClick={handleApplyFilters} />
