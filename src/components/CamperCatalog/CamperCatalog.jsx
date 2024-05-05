@@ -43,6 +43,8 @@ const CamperCatalog = () => {
       );
     }
 
+    // if (filterCampers){}
+
     if (filteredEquipment.length > 0) {
       filteredCampers = filteredCampers.filter((camper) =>
         filteredEquipment.every((equipment) => camper.details[equipment])
