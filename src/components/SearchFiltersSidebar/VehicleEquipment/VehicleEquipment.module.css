@@ -19,7 +19,6 @@
     height: 1px;
     background-color: rgba(16, 40, 20, 0.1);
     width: 100%;
-
 }
 
 .options {
@@ -28,11 +27,40 @@
     gap: 8px 10px;
 }
 
-.filterItem {
-    border: 1px solid var(--button);
+.filterCheckbox {
+    border: 1px solid rgba(16, 24, 40, 0.2);
     border-radius: 10px;
-    padding: 17px 40px;
-    width: 112px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    max-width: 115px;
     height: 95px;
-    margin: 0;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    text-align: center;
+    color: var(--main);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.checked {
+    border: 1px solid var(--button);
+    /* background-color: var(--button-bg); */
+}
+
+.visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
 }

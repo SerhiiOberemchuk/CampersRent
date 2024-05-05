@@ -10,4 +10,6 @@ export const initialState = {
   isModallMoreInfo: false,
   idCamperShowMore: null,
   filteredVanType: "",
+  filteredEquipment: "",
+  location: "",
 };

@@ -1,15 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
 import css from "./VehicleType.module.css";
-import { setFilteredVanTyp } from "../../../redux/campers/campersSlice";
 import AlcoveSvg from "../../../assets/Icons/AlcoveSvg";
 import FullyIntegratedSvg from "../../../assets/Icons/FullyIntegratedSvg";
 import VanSvg from "../../../assets/Icons/VanSvg";
 
-const VehicleType = () => {
-  const { filteredVanType } = useSelector((state) => state.campers);
-  const dispatch = useDispatch();
+const VehicleType = ({ onChange, selectedVanType }) => {
   const handleChange = (e) => {
-    dispatch(setFilteredVanTyp(e.target.value));
+    onChange(e.target.value);
   };
 
   return (
@@ -18,7 +14,7 @@ const VehicleType = () => {
       <form className={css.options}>
         <input
           onChange={handleChange}
-          checked={filteredVanType === "panelTruck"}
+          checked={selectedVanType === "panelTruck"}
           type="radio"
           name="vanType"
           value="panelTruck"
@@ -32,7 +28,7 @@ const VehicleType = () => {
 
         <input
           onChange={handleChange}
-          checked={filteredVanType === "fullyIntegrated"}
+          checked={selectedVanType === "fullyIntegrated"}
           type="radio"
           name="vanType"
           value="fullyIntegrated"
@@ -46,7 +42,7 @@ const VehicleType = () => {
 
         <input
           onChange={handleChange}
-          checked={filteredVanType === "alcove"}
+          checked={selectedVanType === "alcove"}
           type="radio"
           name="vanType"
           value="alcove"

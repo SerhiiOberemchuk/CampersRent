@@ -1,16 +1,8 @@
-import { useDispatch } from "react-redux";
 import css from "./ButtonSearch.module.css";
-import { getAllCampersThunk } from "../../../redux/campers/operations";
 
-const ButtonSearch = () => {
-  const dispatch = useDispatch();
-  // const handleAllCampers = () => dispatch(getAllCampersThunk());
+const ButtonSearch = ({ onClick }) => {
   return (
-    <button
-      type="button"
-      className={css.buttonSearch}
-      // onClick={() => dispatch(getAllCampersThunk(4, 1))}
-    >
+    <button className={css.buttonSearch} onClick={onClick}>
       Search
     </button>
   );
