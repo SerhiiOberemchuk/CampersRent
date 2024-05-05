@@ -1,8 +1,9 @@
-import Container from "../../components/Container/Container";
+import Container from "../components/Common/Container/Container";
+import Section from "../components/Common/Section/Section";
 
 const Home = () => {
   return (
-    <section>
+    <Section>
       <Container>
         <h1>Welcome to CamperHub!</h1>
         <p>
@@ -30,7 +31,7 @@ const Home = () => {
           your next great adventure with us!
         </p>
       </Container>
-    </section>
+    </Section>
   );
 };
 

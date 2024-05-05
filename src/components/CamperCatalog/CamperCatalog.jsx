@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { nanoid } from "nanoid";
 import css from "./CamperCatalog.module.css";
 import { getAllCampersThunk } from "../../redux/campers/operations";
 import CamperCard from "./CamperCard";
-import { useEffect } from "react";
 import { nextPage } from "../../redux/campers/campersSlice";
-import Spiner from "../Common/Spiner";
 import ModalMoreInfo from "../ModallMoreInfo/ModalMoreInfo";
-import { nanoid } from "nanoid";
+import Spiner from "../Common/Spiner/Spiner";
 
 const CamperCatalog = () => {
   const {

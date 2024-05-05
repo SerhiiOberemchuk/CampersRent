@@ -1,22 +1,24 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Home from "../src/pages/Home/Home.jsx";
-import Catalog from "../src/pages/Catalog/Catalog.jsx";
-import Favorites from "../src/pages/Favorites/Favorites.jsx";
+import { lazy } from "react";
+
+import Layout from "./components/Layout/Layout.jsx";
+
+const Home = lazy(() => import("./pages/Home.jsx"));
+const Catalog = lazy(() => import("./pages/Catalog.jsx"));
+const Favorites = lazy(() => import("./pages/Favorites.jsx"));
 
 function App() {
   return (
-    <dev>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </main>
-    </dev>
+        </Route>
+      </Routes>
+    </>
   );
 }
 

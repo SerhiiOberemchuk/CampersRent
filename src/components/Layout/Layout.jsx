@@ -1,15 +1,25 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
+import Spiner from "../Common/Spiner/Spiner";
+import css from "./Layout.module.css";
 
 const Layout = () => {
   return (
-    <div>
+    <>
       <Header />
-      <Suspense fallback={<div>Loading....</div>}>
-        <Outlet />
-      </Suspense>
-    </div>
+      <main>
+        <Suspense
+          fallback={
+            <div className={css.layoutSpiner}>
+              <Spiner />
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
+      </main>
+    </>
   );
 };
 

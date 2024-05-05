@@ -1,0 +1,12 @@
+.favoriteList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+
+}
+
+.linkCatalog {
+    color: var(--rating);
+}
