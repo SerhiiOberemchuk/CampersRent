@@ -4,38 +4,28 @@ import css from "./SearchFiltersSidebar.module.css";
 import VehicleType from "./VehicleType/VehicleType";
 import VehicleEquipment from "./VehicleEquipment/VehicleEquipment";
 import ButtonSearch from "./ButtonSearch/ButtonSearch";
-import {
-  setFilteredEquipment,
-  setFilteredVanType,
-  setLocation,
-} from "../../redux/campers/campersSlice";
+import { setFilters } from "../../redux/campers/campersSlice";
 
 const SearchFiltersSidebar = () => {
   const dispatch = useDispatch();
-  const { filteredVanType, filteredEquipment, location } = useSelector(
-    (state) => state.campers
-  );
+  const { filters } = useSelector((state) => state.campers);
 
-  const [selectedEquipment, setSelectedEquipment] = useState(filteredEquipment);
-  const [selectedVanType, setSelectedVanType] = useState(filteredVanType);
-  const [currentLocation, setCurrentLocation] = useState(location);
+  const [currentFilters, setCurrentFilters] = useState(filters);
 
   const handleLocationChange = (e) => {
-    setCurrentLocation(e.target.value);
+    setCurrentFilters({ ...currentFilters, location: e.target.value });
   };
 
   const handleVanTypeChange = (vanType) => {
-    setSelectedVanType(vanType);
+    setCurrentFilters({ ...currentFilters, form: vanType });
   };
 
   const handleEquipmentChange = (equipment) => {
-    setSelectedEquipment(equipment);
+    setCurrentFilters({ ...currentFilters, equipment });
   };
 
   const handleApplyFilters = () => {
-    dispatch(setFilteredVanType(selectedVanType));
-    dispatch(setFilteredEquipment(selectedEquipment));
-    dispatch(setLocation(currentLocation));
+    dispatch(setFilters(currentFilters));
   };
 
   return (
@@ -48,7 +38,7 @@ const SearchFiltersSidebar = () => {
           type="text"
           name="locationCamper"
           className={css.inputLocation}
-          value={currentLocation}
+          value={currentFilters.location || ""}
           onChange={handleLocationChange}
         />
       </div>
@@ -56,12 +46,9 @@ const SearchFiltersSidebar = () => {
         <h2 className={css.filterName}>Filters</h2>
         <VehicleEquipment
           onChange={handleEquipmentChange}
-          selectedEquipment={selectedEquipment}
+          selectedEquipment={currentFilters.equipment || []}
         />
-        <VehicleType
-          onChange={handleVanTypeChange}
-          selectedVanType={selectedVanType}
-        />
+        <VehicleType onChange={handleVanTypeChange} />
         <ButtonSearch onClick={handleApplyFilters} />
       </div>
     </div>

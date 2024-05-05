@@ -17,14 +17,11 @@ const CamperCatalog = () => {
     pageOfCampers,
     limitItemsOfCampers,
     isButtonLoadMore,
-    filteredVanType,
-    filteredEquipment,
-    location,
+    filters,
   } = useSelector((state) => state.campers);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("useEffect triggered", pageOfCampers);
     dispatch(
       getAllCampersThunk({ page: pageOfCampers, limit: limitItemsOfCampers })
     );
@@ -37,23 +34,21 @@ const CamperCatalog = () => {
   const filterCampers = () => {
     let filteredCampers = campers;
 
-    if (filteredVanType) {
+    if (filters.form) {
       filteredCampers = filteredCampers.filter(
-        (camper) => camper.form === filteredVanType
+        (camper) => camper.form === filters.form
       );
     }
 
-    // if (filterCampers){}
-
-    if (filteredEquipment.length > 0) {
+    if (filters.equipment && filters.equipment.length > 0) {
       filteredCampers = filteredCampers.filter((camper) =>
-        filteredEquipment.every((equipment) => camper.details[equipment])
+        filters.equipment.every((equipment) => camper.details[equipment])
       );
     }
 
-    if (location) {
+    if (filters.location) {
       filteredCampers = filteredCampers.filter((camper) =>
-        camper.location.toLowerCase().includes(location.toLowerCase())
+        camper.location.toLowerCase().includes(filters.location.toLowerCase())
       );
     }
 
@@ -61,6 +56,7 @@ const CamperCatalog = () => {
   };
 
   const filteredCampers = filterCampers();
+
   return (
     <div className={css.campersBox}>
       {filteredCampers.map((item) => (

@@ -3,9 +3,10 @@
     top: 0;
     left: 0;
     margin-bottom: 10px;
-    background-color: antiquewhite;
+    background: var(--inputs);
     width: 100%;
     z-index: 100;
+    color: rgb(230, 236, 241);
 }
 
 .navigation {
@@ -17,9 +18,9 @@
 .navLink {
     border-radius: 5px;
     padding: 5px;
-    background-color: aqua;
+    background-color: rgb(15, 7, 246);
 }
 
 .active {
-    background-color: chartreuse
+    background-color: rgb(27, 166, 138)
 }

@@ -2,10 +2,15 @@ import css from "./VehicleType.module.css";
 import AlcoveSvg from "../../../assets/Icons/AlcoveSvg";
 import FullyIntegratedSvg from "../../../assets/Icons/FullyIntegratedSvg";
 import VanSvg from "../../../assets/Icons/VanSvg";
+import { useState } from "react";
 
-const VehicleType = ({ onChange, selectedVanType }) => {
+const VehicleType = ({ onChange }) => {
+  const [selectedType, setSelectedType] = useState(null);
+
   const handleChange = (e) => {
-    onChange(e.target.value);
+    const { value } = e.target;
+    onChange(value);
+    setSelectedType(value);
   };
 
   return (
@@ -14,7 +19,7 @@ const VehicleType = ({ onChange, selectedVanType }) => {
       <form className={css.options}>
         <input
           onChange={handleChange}
-          checked={selectedVanType === "panelTruck"}
+          checked={selectedType === "panelTruck"}
           type="radio"
           name="vanType"
           value="panelTruck"
@@ -28,7 +33,7 @@ const VehicleType = ({ onChange, selectedVanType }) => {
 
         <input
           onChange={handleChange}
-          checked={selectedVanType === "fullyIntegrated"}
+          checked={selectedType === "fullyIntegrated"}
           type="radio"
           name="vanType"
           value="fullyIntegrated"
@@ -42,7 +47,7 @@ const VehicleType = ({ onChange, selectedVanType }) => {
 
         <input
           onChange={handleChange}
-          checked={selectedVanType === "alcove"}
+          checked={selectedType === "alcove"}
           type="radio"
           name="vanType"
           value="alcove"

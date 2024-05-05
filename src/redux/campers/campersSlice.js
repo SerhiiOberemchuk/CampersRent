@@ -40,14 +40,9 @@ const campersSlice = createSlice({
         1
       );
     },
-    setFilteredVanType: (state, { payload }) => {
-      state.filteredVanType = payload;
-    },
-    setFilteredEquipment: (state, { payload }) => {
-      state.filteredEquipment = payload;
-    },
-    setLocation: (state, { payload }) => {
-      state.location = payload;
+
+    setFilters: (state, { payload }) => {
+      state.filters = { ...state.filters, ...payload };
     },
   },
   extraReducers: (builder) =>
@@ -74,9 +69,7 @@ export const {
   closeModal,
   dellFromFavorite,
   addToFavorite,
-  setFilteredVanType,
-  setFilteredEquipment,
-  setLocation,
+  setFilters,
 } = campersSlice.actions;
 
 export const campersReduser = campersSlice.reducer;
