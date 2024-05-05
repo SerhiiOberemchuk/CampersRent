@@ -1,0 +1,42 @@
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.mainHeading {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.introParagraph {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.section {
+    margin-bottom: 24px;
+}
+
+.sectionHeading {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.serviceList,
+.benefitsList {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.listItem {
+    line-height: 1.6;
+}
+
+.finalParagraph {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+}
