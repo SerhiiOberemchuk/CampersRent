@@ -33,29 +33,35 @@ const CamperCatalog = () => {
   const filterCampers = () => {
     let filteredCampers = campers;
 
-    if (filters.form) {
+    const cleanFilters = Object.fromEntries(
+      Object.entries(filters).filter(([key, value]) => value !== undefined)
+    );
+
+    if (cleanFilters.form) {
       filteredCampers = filteredCampers.filter(
-        (camper) => camper.form === filters.form
+        (camper) => camper.form === cleanFilters.form
       );
     }
 
-    if (filters.transmission) {
+    if (cleanFilters.transmission) {
       filteredCampers = filteredCampers.filter(
-        (camper) => camper.transmission === filters.transmission
+        (camper) => camper.transmission === cleanFilters.transmission
       );
     }
 
-    // Object.keys(filters).forEach((key) => {
-    //   if (key !== "location" && key !== "form" && key !== "transmission") {
-    //     filteredCampers = filteredCampers.filter(
-    //       (camper) => camper.details[key]
-    //     );
-    //   }
-    // });
+    Object.keys(cleanFilters).forEach((key) => {
+      if (key !== "location" && key !== "form" && key !== "transmission") {
+        filteredCampers = filteredCampers.filter(
+          (camper) => camper.details[key] > 0
+        );
+      }
+    });
 
-    if (filters.location) {
+    if (cleanFilters.location) {
       filteredCampers = filteredCampers.filter((camper) =>
-        camper.location.toLowerCase().includes(filters.location.toLowerCase())
+        camper.location
+          .toLowerCase()
+          .includes(cleanFilters.location.toLowerCase())
       );
     }
 

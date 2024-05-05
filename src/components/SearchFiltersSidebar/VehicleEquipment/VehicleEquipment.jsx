@@ -15,25 +15,16 @@ const equipmentOptions = [
   { value: "bathroom", label: "Shower/WC", icon: <ShowerWcSvg /> },
 ];
 
-const VehicleEquipment = ({ onChange }) => {
-  const [filters, setFilters] = useState({});
-
+const VehicleEquipment = ({ onChange, filters }) => {
   const handleCheckboxChange = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
 
-    setFilters((prev) => {
-      const updatedFilters = { ...prev };
-
-      if (value === "automatic") {
-        updatedFilters.transmission = isChecked ? value : undefined;
-      } else {
-        updatedFilters[value] = isChecked ? isChecked : undefined;
-      }
-
-      onChange(updatedFilters);
-      return updatedFilters;
-    });
+    if (value === "automatic") {
+      onChange({ transmission: isChecked ? value : undefined });
+    } else {
+      onChange({ [value]: isChecked ? isChecked : undefined });
+    }
   };
 
   return (

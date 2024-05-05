@@ -8,9 +8,9 @@ import { setFilters } from "../../redux/campers/campersSlice";
 
 const SearchFiltersSidebar = () => {
   const dispatch = useDispatch();
-  const { filters } = useSelector((state) => state.campers);
+  // const { filters } = useSelector((state) => state.campers);
 
-  const [currentFilters, setCurrentFilters] = useState(filters);
+  const [currentFilters, setCurrentFilters] = useState({});
 
   const handleLocationChange = (e) => {
     setCurrentFilters({ ...currentFilters, location: e.target.value });
@@ -44,7 +44,10 @@ const SearchFiltersSidebar = () => {
       </div>
       <div className={css.filetCampers}>
         <h2 className={css.filterName}>Filters</h2>
-        <VehicleEquipment onChange={handleEquipmentChange} />
+        <VehicleEquipment
+          onChange={handleEquipmentChange}
+          filters={currentFilters}
+        />
         <VehicleType onChange={handleVanTypeChange} />
         <ButtonSearch onClick={handleApplyFilters} />
       </div>
