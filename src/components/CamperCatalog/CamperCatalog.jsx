@@ -45,13 +45,15 @@ const CamperCatalog = () => {
       );
     }
 
-    Object.keys(filters).forEach((key) => {
-      if (key !== "location" && key !== "form" && key !== "transmission") {
-        filteredCampers = filteredCampers.filter(
-          (camper) => camper.details[key]
-        );
-      }
-    });
+    // Object.keys(filters).forEach((key) => {
+    //   if (key !== "location" && key !== "form" && key !== "transmission") {
+    //     filteredCampers = filteredCampers.filter(
+    //       (camper) => camper.details[key]
+    //     );
+    //   }
+    // });
+
+    
 
     if (filters.location) {
       filteredCampers = filteredCampers.filter((camper) =>

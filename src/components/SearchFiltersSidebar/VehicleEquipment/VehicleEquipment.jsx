@@ -22,23 +22,19 @@ const VehicleEquipment = ({ onChange }) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
 
-    if (value === "automatic") {
-      setFilters((prev) => ({
-        ...prev,
-        transmission: isChecked ? value : undefined,
-      }));
-    } else {
-      setFilters((prev) => ({
-        ...prev,
-        [value]: isChecked ? isChecked : undefined,
-      }));
-    }
-    onChange(filters);
-  };
+    setFilters((prev) => {
+      const updatedFilters = { ...prev };
 
-  // useEffect(() => {
-  //   onChange(filters);
-  // }, [filters, onChange]);
+      if (value === "automatic") {
+        updatedFilters.transmission = isChecked ? value : undefined;
+      } else {
+        updatedFilters[value] = isChecked ? isChecked : undefined;
+      }
+
+      onChange(updatedFilters);
+      return updatedFilters;
+    });
+  };
 
   return (
     <div className={css.equipmentSection}>
