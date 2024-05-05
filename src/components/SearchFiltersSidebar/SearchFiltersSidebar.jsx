@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import css from "./SearchFiltersSidebar.module.css";
-
 import VehicleType from "./VehicleType/VehicleType";
 import VehicleEquipment from "./VehicleEquipment/VehicleEquipment";
 import ButtonSearch from "./ButtonSearch/ButtonSearch";
@@ -18,13 +17,15 @@ const SearchFiltersSidebar = () => {
   );
 
   const [selectedEquipment, setSelectedEquipment] = useState(filteredEquipment);
+  const [selectedVanType, setSelectedVanType] = useState(filteredVanType);
+  const [currentLocation, setCurrentLocation] = useState(location);
 
   const handleLocationChange = (e) => {
-    dispatch(setLocation(e.target.value));
+    setCurrentLocation(e.target.value);
   };
 
   const handleVanTypeChange = (vanType) => {
-    dispatch(setFilteredVanType(vanType));
+    setSelectedVanType(vanType);
   };
 
   const handleEquipmentChange = (equipment) => {
@@ -32,7 +33,9 @@ const SearchFiltersSidebar = () => {
   };
 
   const handleApplyFilters = () => {
+    dispatch(setFilteredVanType(selectedVanType));
     dispatch(setFilteredEquipment(selectedEquipment));
+    dispatch(setLocation(currentLocation));
   };
 
   return (
@@ -45,7 +48,7 @@ const SearchFiltersSidebar = () => {
           type="text"
           name="locationCamper"
           className={css.inputLocation}
-          value={location}
+          value={currentLocation}
           onChange={handleLocationChange}
         />
       </div>
@@ -57,7 +60,7 @@ const SearchFiltersSidebar = () => {
         />
         <VehicleType
           onChange={handleVanTypeChange}
-          selectedVanType={filteredVanType}
+          selectedVanType={selectedVanType}
         />
         <ButtonSearch onClick={handleApplyFilters} />
       </div>

@@ -7,11 +7,11 @@ import ShowerWcSvg from "../../../assets/Icons/ShowerWcSvg";
 import { nanoid } from "nanoid";
 
 const equipmentOptions = [
-  { value: "AC", label: "AC", icon: <AcAirSvg /> },
-  { value: "Automatic", label: "Automatic", icon: <AutomaticSvg /> },
-  { value: "Kitchen", label: "Kitchen", icon: <KitchenSvg /> },
+  { value: "airConditioner", label: "AC", icon: <AcAirSvg /> },
+  { value: "automatic", label: "Automatic", icon: <AutomaticSvg /> },
+  { value: "kitchen", label: "Kitchen", icon: <KitchenSvg /> },
   { value: "TV", label: "TV", icon: <TvSvg /> },
-  { value: "Shower/WC", label: "Shower/WC", icon: <ShowerWcSvg /> },
+  { value: "bathroom", label: "Shower/WC", icon: <ShowerWcSvg /> },
 ];
 
 const VehicleEquipment = ({ onChange, selectedEquipment }) => {
