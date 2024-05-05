@@ -44,10 +44,7 @@ const SearchFiltersSidebar = () => {
       </div>
       <div className={css.filetCampers}>
         <h2 className={css.filterName}>Filters</h2>
-        <VehicleEquipment
-          onChange={handleEquipmentChange}
-          initialFilters={currentFilters}
-        />
+        <VehicleEquipment onChange={handleEquipmentChange} />
         <VehicleType onChange={handleVanTypeChange} />
         <ButtonSearch onClick={handleApplyFilters} />
       </div>
