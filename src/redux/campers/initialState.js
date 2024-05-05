@@ -9,4 +9,5 @@ export const initialState = {
   isButtonLoadMore: true,
   isModallMoreInfo: false,
   idCamperShowMore: null,
+  filteredVanType: "",
 };

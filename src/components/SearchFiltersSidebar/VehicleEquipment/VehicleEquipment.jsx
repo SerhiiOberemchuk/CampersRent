@@ -9,25 +9,35 @@ import ShowerWcSvg from "../../../assets/Icons/ShowerWcSvg";
 const VehicleEquipment = () => {
   return (
     <div className={css.equipmentSection}>
-      <h2 className={css.boxName}>VehicleEquipment</h2>
+      <h2 className={css.boxName}>Vehicle Equipment</h2>
 
-      <ul className={css.options}>
-        <li>
-          <CheckboxFilter name={"AC"} image={<AcAirSvg />} />
-        </li>
-        <li>
-          <CheckboxFilter name={"Automatic"} image={<AutomaticSvg />} />
-        </li>
-        <li>
-          <CheckboxFilter name={"Kitchen"} image={<KitchenSvg />} />
-        </li>
-        <li>
-          <CheckboxFilter name={"TV"} image={<TvSvg />} />
-        </li>
-        <li>
-          <CheckboxFilter name={"Shower/WC"} image={<ShowerWcSvg />} />
-        </li>
-      </ul>
+      <form className={css.options}>
+        <CheckboxFilter
+          name={"vehicleEquipment"}
+          nameInput={"AC"}
+          image={<AcAirSvg />}
+        />
+
+        <CheckboxFilter
+          name={"vehicleEquipment"}
+          nameInput={"Automatic"}
+          image={<AutomaticSvg />}
+        />
+
+        <CheckboxFilter
+          name={"vehicleEquipment"}
+          nameInput={"Kitchen"}
+          image={<KitchenSvg />}
+        />
+
+        <CheckboxFilter name={"TV"} nameInput={"TV"} image={<TvSvg />} />
+
+        <CheckboxFilter
+          name={"vehicleEquipment"}
+          nameInput={"Shower/WC"}
+          image={<ShowerWcSvg />}
+        />
+      </form>
     </div>
   );
 };
