@@ -1,21 +1,12 @@
-import React, { useState } from "react";
-import css from "./CamperCatalog.module.css";
-import DetailsItem from "./DetailsItem/DetailsItem";
-import AdultsSvg from "../../assets/Icons/AdultsSvg";
-import Automatic from "../../assets/Icons/AutomaticSvg";
-import PetrolSvg from "../../assets/Icons/PetrolSvg";
-import KitchenSvg from "../../assets/Icons/KitchenSvg";
-import BedsSvg from "../../assets/Icons/BedsSvg";
-import AcAirSvg from "../../assets/Icons/AcAirSvg";
-import PointLocationSvg from "../../assets/Icons/PointLocationSvg";
-import StarSvg from "../../assets/Icons/StarSvg";
 import { useDispatch, useSelector } from "react-redux";
+import css from "./CamperCatalog.module.css";
 import {
   addToFavorite,
   dellFromFavorite,
   showModal,
 } from "../../redux/campers/campersSlice";
-import HeartSvg from "../../assets/Icons/HeartSvg";
+import DetailsItem from "./DetailsItem/DetailsItem";
+import { icons } from "../../assets/Icons/Icons";
 
 const CamperCard = ({
   name,
@@ -60,7 +51,7 @@ const CamperCard = ({
                 onClick={handleOnClickFavorite}
                 className={css.buttonAddToFavorite}
               >
-                <HeartSvg
+                <icons.HeartSvg
                   fill={isFavorite ? "#E44848" : ""}
                   stroke={isFavorite ? "#E44848" : "#101828"}
                 />
@@ -69,10 +60,10 @@ const CamperCard = ({
           </div>
           <div className={css.reviewsLocation}>
             <p className={css.reviews}>
-              {<StarSvg />} {rating}({reviews} Reviews)
+              {<icons.StarSvg />} {rating}({reviews} Reviews)
             </p>
             <p className={css.locationPoint}>
-              {<PointLocationSvg />}
+              {<icons.PointLocationSvg />}
               {location}
             </p>
           </div>
@@ -80,22 +71,28 @@ const CamperCard = ({
         <p className={css.description}>{description}</p>
         <ul className={css.details}>
           <li>
-            <DetailsItem image={<AdultsSvg />} name={`${adults} adults`} />
+            <DetailsItem image={<icons.AdultSvg />} name={`${adults} adults`} />
           </li>
           <li>
-            <DetailsItem image={<Automatic size={20} />} name={transmission} />
+            <DetailsItem
+              image={<icons.AutomaticSvg size={20} />}
+              name={transmission}
+            />
           </li>
           <li>
-            <DetailsItem image={<PetrolSvg />} name={engine} />
+            <DetailsItem image={<icons.PetrolSvg />} name={engine} />
           </li>
           <li>
-            <DetailsItem image={<KitchenSvg size={20} />} name={"Kitchen"} />
+            <DetailsItem
+              image={<icons.KitchenSvg size={20} />}
+              name={"Kitchen"}
+            />
           </li>
           <li>
-            <DetailsItem image={<BedsSvg />} name={`${beds} beds`} />
+            <DetailsItem image={<icons.BedsSvg />} name={`${beds} beds`} />
           </li>
           <li>
-            <DetailsItem image={<AcAirSvg size={20} />} name={"AC"} />
+            <DetailsItem image={<icons.AcAirSvg size={20} />} name={"AC"} />
           </li>
         </ul>
         <button

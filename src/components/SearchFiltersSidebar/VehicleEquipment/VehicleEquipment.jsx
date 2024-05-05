@@ -1,18 +1,13 @@
-import { useState, useEffect } from "react";
-import css from "./VehicleEquipment.module.css";
-import AcAirSvg from "../../../assets/Icons/AcAirSvg";
-import AutomaticSvg from "../../../assets/Icons/AutomaticSvg";
-import KitchenSvg from "../../../assets/Icons/KitchenSvg";
-import TvSvg from "../../../assets/Icons/TvSvg";
-import ShowerWcSvg from "../../../assets/Icons/ShowerWcSvg";
 import { nanoid } from "nanoid";
+import css from "./VehicleEquipment.module.css";
+import { icons } from "../../../assets/Icons/Icons";
 
 const equipmentOptions = [
-  { value: "airConditioner", label: "AC", icon: <AcAirSvg /> },
-  { value: "automatic", label: "Automatic", icon: <AutomaticSvg /> },
-  { value: "kitchen", label: "Kitchen", icon: <KitchenSvg /> },
-  { value: "TV", label: "TV", icon: <TvSvg /> },
-  { value: "bathroom", label: "Shower/WC", icon: <ShowerWcSvg /> },
+  { value: "airConditioner", label: "AC", icon: <icons.AcAirSvg /> },
+  { value: "automatic", label: "Automatic", icon: <icons.AutomaticSvg /> },
+  { value: "kitchen", label: "Kitchen", icon: <icons.KitchenSvg /> },
+  { value: "TV", label: "TV", icon: <icons.TvSvg /> },
+  { value: "bathroom", label: "Shower/WC", icon: <icons.ShowerWcSvg /> },
 ];
 
 const VehicleEquipment = ({ onChange, filters }) => {

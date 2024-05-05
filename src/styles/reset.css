@@ -58,8 +58,3 @@ address {
 .body-no-scroll {
     overflow: hidden;
 }
-
-/* input:invalid,
-textarea:invalid {
-    border: 2px solid red;
-} */

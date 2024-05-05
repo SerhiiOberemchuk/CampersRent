@@ -1,64 +1,56 @@
 import { useSelector } from "react-redux";
 import css from "./Feauters.module.css";
-import AdultsSvg from "../../../assets/Icons/AdultsSvg";
-import Automatic from "../../../assets/Icons/AutomaticSvg";
-import AcAirSvg from "../../../assets/Icons/AcAirSvg";
 import { nanoid } from "@reduxjs/toolkit";
-import PetrolSvg from "../../../assets/Icons/PetrolSvg";
-import Kitchen from "../../../assets/Icons/KitchenSvg";
-import BedsSvg from "../../../assets/Icons/BedsSvg";
-import ConditionerSvg from "../../../assets/Icons/ConditionerSvg";
-import CdSvg from "../../../assets/Icons/CdSvg";
-import RadioSvg from "../../../assets/Icons/RadioSvg";
-import HobSvg from "../../../assets/Icons/HobSvg";
+
+import { icons } from "../../../assets/Icons/Icons";
 
 const Feauters = () => {
   const { camperMoreInfo } = useSelector((state) => state.campers);
   const featuresIcons = [
     {
       label: "adults",
-      icon: <AdultsSvg size={20} />,
+      icon: <icons.AdultSvg size={20} />,
       value: camperMoreInfo.adults,
     },
     {
       label: camperMoreInfo.transmission,
-      icon: <Automatic size={20} />,
+      icon: <icons.AutomaticSvg size={20} />,
       value: null,
     },
-    { label: "AC", icon: <AcAirSvg size={20} />, value: null },
+    { label: "AC", icon: <icons.AcAirSvg size={20} />, value: null },
     {
       label: camperMoreInfo.engine,
-      icon: <PetrolSvg size={20} />,
+      icon: <icons.PetrolSvg size={20} />,
       value: null,
     },
     {
       label: "kitchen",
-      icon: <Kitchen size={20} />,
+      icon: <icons.KitchenSvg size={20} />,
       value: null,
     },
     {
       label: "beds",
-      icon: <BedsSvg size={20} />,
+      icon: <icons.BedsSvg size={20} />,
       value: camperMoreInfo.details.beds,
     },
     {
       label: "air conditioner",
-      icon: <ConditionerSvg size={20} />,
+      icon: <icons.ConditionerSvg size={20} />,
       value: camperMoreInfo.details.airConditioner,
     },
     {
       label: "CD",
-      icon: <CdSvg size={20} />,
+      icon: <icons.CdSvg size={20} />,
       value: null,
     },
     {
       label: "Radio",
-      icon: <RadioSvg size={20} />,
+      icon: <icons.RadioSvg size={20} />,
       value: null,
     },
     {
       label: "hob",
-      icon: <HobSvg size={20} />,
+      icon: <icons.HobSvg size={20} />,
       value: camperMoreInfo.details.hob,
     },
   ];
