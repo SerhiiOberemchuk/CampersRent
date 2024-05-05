@@ -25,7 +25,6 @@ const ModalMoreInfo = () => {
     return () => window.removeEventListener("keydown", handlePressKey);
   }, [dispatch]);
 
-  console.log(camperMoreInfo);
   const { gallery, name, price, rating, reviews, location } = camperMoreInfo;
   return (
     <div

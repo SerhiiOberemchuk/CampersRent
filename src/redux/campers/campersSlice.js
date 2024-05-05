@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
-import { getAllCampersThunk, getCamperByIdThunk } from "./operations";
+import { getAllCampersThunk } from "./operations";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -54,13 +54,7 @@ const campersSlice = createSlice({
           payload.length < state.limitItemsOfCampers ? false : true;
         state.campers = [...state.campers, ...payload];
       })
-      .addCase(getAllCampersThunk.rejected, handleRejected)
-      .addCase(getCamperByIdThunk.pending, handlePending)
-      .addCase(getCamperByIdThunk.fulfilled, (state, { payload }) => {
-        state.camperMoreInfo = payload;
-        state.isLoading = false;
-      })
-      .addCase(getCamperByIdThunk.rejected, handleRejected),
+      .addCase(getAllCampersThunk.rejected, handleRejected),
 });
 
 export const {

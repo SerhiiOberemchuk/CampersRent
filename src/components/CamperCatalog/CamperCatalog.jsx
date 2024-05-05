@@ -53,8 +53,6 @@ const CamperCatalog = () => {
     //   }
     // });
 
-    
-
     if (filters.location) {
       filteredCampers = filteredCampers.filter((camper) =>
         camper.location.toLowerCase().includes(filters.location.toLowerCase())
