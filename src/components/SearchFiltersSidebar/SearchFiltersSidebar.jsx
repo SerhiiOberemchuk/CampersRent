@@ -5,6 +5,7 @@ import VehicleType from "./VehicleType/VehicleType";
 import VehicleEquipment from "./VehicleEquipment/VehicleEquipment";
 import ButtonSearch from "./ButtonSearch/ButtonSearch";
 import { setFilters } from "../../redux/campers/campersSlice";
+import ModalFilter from "../ModalFiltersCamper/ModalFilters";
 
 const SearchFiltersSidebar = () => {
   const dispatch = useDispatch();
