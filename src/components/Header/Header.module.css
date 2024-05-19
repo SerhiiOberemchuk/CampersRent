@@ -12,7 +12,7 @@
 .navigation {
     padding: 10px 0;
     display: flex;
-    gap: 100px;
+    justify-content: space-around;
 }
 
 .navLink {
@@ -20,8 +20,25 @@
     border-radius: 5px;
     padding: 5px;
     background-color: rgb(15, 7, 246);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .active {
     background-color: rgb(27, 166, 138)
+}
+
+@media (max-width:768px) {
+    .linkName {
+        display: none;
+    }
+
+}
+
+@media (min-width:768px) {
+    .navigation {
+        justify-content: flex-start;
+        gap: 50px
+    }
 }

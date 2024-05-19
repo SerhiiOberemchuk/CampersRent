@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import css from "./Header.module.css";
 import Container from "../Common/Container/Container";
+import { IoHomeOutline } from "react-icons/io5";
+import { GrCatalogOption } from "react-icons/gr";
+import { MdFavoriteBorder } from "react-icons/md";
 const Header = () => {
   return (
     <header className={css.header}>
@@ -12,7 +15,8 @@ const Header = () => {
               `${css.navLink} ${isActive ? css.active : ""}`
             }
           >
-            Home
+            <IoHomeOutline />
+            <span className={css.linkName}>Home</span>
           </NavLink>
           <NavLink
             to="/catalog"
@@ -20,7 +24,8 @@ const Header = () => {
               `${css.navLink} ${isActive ? css.active : ""}`
             }
           >
-            Catalog
+            <GrCatalogOption />
+            <span className={css.linkName}>Catalog</span>
           </NavLink>
           <NavLink
             to="/favorites"
@@ -28,7 +33,8 @@ const Header = () => {
               `${css.navLink} ${isActive ? css.active : ""}`
             }
           >
-            Favorites
+            <MdFavoriteBorder />
+            <span className={css.linkName}>Favorites</span>
           </NavLink>
         </nav>
       </Container>
