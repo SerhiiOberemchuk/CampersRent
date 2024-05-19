@@ -4,7 +4,10 @@ import Container from "../Common/Container/Container";
 import { IoHomeOutline } from "react-icons/io5";
 import { GrCatalogOption } from "react-icons/gr";
 import { MdFavoriteBorder } from "react-icons/md";
+import { useSelector } from "react-redux";
 const Header = () => {
+  const { arrayFavoriteCampers } = useSelector((state) => state.campers);
+
   return (
     <header className={css.header}>
       <Container>
@@ -34,6 +37,9 @@ const Header = () => {
             }
           >
             <MdFavoriteBorder />
+            {arrayFavoriteCampers.length > 0 && (
+              <span>{arrayFavoriteCampers.length}</span>
+            )}
             <span className={css.linkName}>Favorites</span>
           </NavLink>
         </nav>

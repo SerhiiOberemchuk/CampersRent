@@ -66,8 +66,7 @@
 
 .namePriceBlock {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+
     margin-bottom: 8px;
 }
 
@@ -98,7 +97,7 @@
 }
 
 .description {
-    max-width: 288px;
+    max-width: 238px;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
@@ -141,6 +140,11 @@
 @media (min-width:768px) {
     .description {
         max-width: 526px;
+    }
+
+    .namePriceBlock {
+        display: flex;
+        justify-content: space-between;
     }
 }
 
