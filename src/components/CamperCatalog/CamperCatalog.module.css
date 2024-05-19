@@ -8,18 +8,22 @@
 }
 
 .camperCard {
-    display: flex;
-    gap: 24px;
     border: 1px solid rgba(16, 24, 40, 0.2);
     border-radius: 20px;
     padding: 24px;
     max-width: 888px;
-    max-height: 358px;
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 24px;
     line-height: 125%;
     color: var(--main);
+}
+
+@media (min-width:1024px) {
+    .camperCard {
+        display: flex;
+        gap: 24px;
+    }
 }
 
 .camperInformationSection {
@@ -29,6 +33,16 @@
     width: 100%;
     max-width: 526px;
 }
+
+.image {
+    width: 100%;
+    max-width: 290px;
+    height: 310px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
 
 .locationPoint {
     display: flex;
@@ -44,13 +58,7 @@
     flex-wrap: wrap;
 }
 
-.image {
-    width: 100%;
-    max-width: 290px;
-    height: 310px;
-    border-radius: 10px;
-    object-fit: cover;
-}
+
 
 .modelCamper {
     font-size: 24px;
@@ -90,7 +98,7 @@
 }
 
 .description {
-    max-width: 526px;
+    max-width: 288px;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
@@ -128,4 +136,21 @@
 
 .buttonAddToFavorite {
     background-color: transparent;
+}
+
+@media (min-width:768px) {
+    .description {
+        max-width: 526px;
+    }
+}
+
+@media (max-width:1024px) {
+    .camperInformationSection {
+        gap: 30px
+    }
+
+    .image {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
 }
