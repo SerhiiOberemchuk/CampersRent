@@ -4,6 +4,7 @@ import css from "./ModalFilters.module.css";
 import SearchFiltersSidebar from "../SearchFiltersSidebar/SearchFiltersSidebar";
 
 const customStyles = {
+  overlay: { zIndex: 999 },
   content: {
     top: "50%",
     left: "50%",
@@ -11,6 +12,8 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    maxHeight: "90vh",
+    overflow: "auto",
   },
 };
 
@@ -26,7 +29,7 @@ function ModalFilter() {
   }
 
   return (
-    <div>
+    <div className={css.modalWindow}>
       <button className={css.openButton} onClick={openModal}>
         Click here to open filter options
       </button>
@@ -35,6 +38,9 @@ function ModalFilter() {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Filter Options"
+        shouldCloseOnOverlayClick={true}
+        shouldCloseOnEsc={true}
+        preventScroll={false}
       >
         <button className={css.closeButton} onClick={closeModal}>
           Close
